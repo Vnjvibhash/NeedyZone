@@ -11,9 +11,9 @@ const contactMethods = [
     icon: Phone,
     title: "Sales Inquiries",
     description: "Talk to our sales team about products and pricing",
-    contact: "+1 (234) 567-890",
-    link: "tel:+1234567890",
-    hours: "Mon-Fri, 9AM-6PM EST",
+    contact: "+91 9717798826",
+    link: "tel:+919717798826",
+    hours: "Mon-Fri, 9AM-6PM IST",
   },
   {
     icon: HeadphonesIcon,
@@ -45,7 +45,7 @@ const offices = [
   {
     name: "Headquarters",
     address: "123 Industrial Park, Tech City, TC 12345, USA",
-    phone: "+1 (234) 567-890",
+    phone: "+91 9717798826",
     email: "hq@needyzone.com",
   },
   {

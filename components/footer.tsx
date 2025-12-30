@@ -43,9 +43,9 @@ export function Footer() {
               offices, and factories worldwide.
             </p>
             <div className="mt-6 flex flex-col gap-3 text-sm text-muted-foreground">
-              <a href="tel:+1234567890" className="flex items-center gap-2 hover:text-foreground">
+              <a href="tel:+919717798826" className="flex items-center gap-2 hover:text-foreground">
                 <Phone className="h-4 w-4" />
-                +1 (234) 567-890
+                +91 9717798826
               </a>
               <a href="mailto:info@needyzone.com" className="flex items-center gap-2 hover:text-foreground">
                 <Mail className="h-4 w-4" />
