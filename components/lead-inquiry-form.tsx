@@ -1,0 +1,130 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { CheckCircle } from "lucide-react"
+
+interface LeadInquiryFormProps {
+  productName?: string
+  type?: "product" | "dealer" | "contact"
+}
+
+export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFormProps) {
+  const [submitted, setSubmitted] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitted(true)
+  }
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 text-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+          <CheckCircle className="h-8 w-8 text-primary" />
+        </div>
+        <h3 className="mt-4 text-xl font-semibold">Thank You!</h3>
+        <p className="mt-2 text-muted-foreground">
+          We&apos;ve received your inquiry and will get back to you within 24 hours.
+        </p>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="name">Full Name *</Label>
+          <Input id="name" placeholder="John Doe" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="company">Company Name</Label>
+          <Input id="company" placeholder="Your Company" />
+        </div>
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="email">Email Address *</Label>
+          <Input id="email" type="email" placeholder="john@example.com" required />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="phone">Phone Number *</Label>
+          <Input id="phone" type="tel" placeholder="+1 234 567 890" required />
+        </div>
+      </div>
+
+      {type === "dealer" && (
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div className="space-y-2">
+            <Label htmlFor="business">Business Type *</Label>
+            <Select required>
+              <SelectTrigger id="business">
+                <SelectValue placeholder="Select business type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="distributor">Distributor</SelectItem>
+                <SelectItem value="retailer">Retailer</SelectItem>
+                <SelectItem value="system-integrator">System Integrator</SelectItem>
+                <SelectItem value="installer">Professional Installer</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="region">Region/Territory *</Label>
+            <Input id="region" placeholder="Your region or city" required />
+          </div>
+        </div>
+      )}
+
+      {type === "product" && (
+        <div className="space-y-2">
+          <Label htmlFor="interest">Product Interest *</Label>
+          <Select defaultValue={productName} required>
+            <SelectTrigger id="interest">
+              <SelectValue placeholder="Select product" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="cctv">CCTV Cameras</SelectItem>
+              <SelectItem value="switchboards">Smart Switchboards</SelectItem>
+              <SelectItem value="both">Both Products</SelectItem>
+              <SelectItem value="custom">Custom Solution</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      )}
+
+      <div className="space-y-2">
+        <Label htmlFor="quantity">Estimated Quantity</Label>
+        <Select>
+          <SelectTrigger id="quantity">
+            <SelectValue placeholder="Select quantity range" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="1-10">1-10 units</SelectItem>
+            <SelectItem value="11-50">11-50 units</SelectItem>
+            <SelectItem value="51-100">51-100 units</SelectItem>
+            <SelectItem value="100+">100+ units</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="message">Message</Label>
+        <Textarea id="message" placeholder="Tell us about your requirements..." rows={4} className="resize-none" />
+      </div>
+
+      <Button type="submit" className="w-full" size="lg">
+        Submit Inquiry
+      </Button>
+    </form>
+  )
+}
