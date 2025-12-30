@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/vivekkumarcipl-2526s-projects/v0-smart-home-ui-design-i0](https://vercel.com/vivekkumarcipl-2526s-projects/v0-smart-home-ui-design-i0)**
+**[https://needyzone.vercel.app/](https://needyzone.vercel.app/)**
 
 ## Build your app
 
