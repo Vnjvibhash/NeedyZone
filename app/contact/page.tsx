@@ -19,8 +19,8 @@ const contactMethods = [
     icon: HeadphonesIcon,
     title: "Technical Support",
     description: "Get help with installation or troubleshooting",
-    contact: "+1 (234) 567-891",
-    link: "tel:+1234567891",
+    contact: "+91 9717798826",
+    link: "tel:+91 9717798826",
     hours: "24/7 Support Available",
   },
   {
@@ -44,22 +44,18 @@ const contactMethods = [
 const offices = [
   {
     name: "Headquarters",
-    address: "123 Industrial Park, Tech City, TC 12345, USA",
+    address: "phase-5 Aya Nagar near-CBR Hospital Sa
+    Sunday Market New Delhi-110047",
     phone: "+91 9717798826",
     email: "hq@needyzone.com",
   },
   {
     name: "Manufacturing Facility",
-    address: "456 Factory Road, Industrial Zone, IZ 67890, India",
-    phone: "+91 987 654 3210",
+    address: "N-346 A , Shanti Colony Mandi Village New Delhi-110047, India",
+    phone: "+91 9717798826",
     email: "factory@needyzone.com",
   },
-  {
-    name: "European Office",
-    address: "789 Business Avenue, London, EC1A 1BB, UK",
-    phone: "+44 20 1234 5678",
-    email: "europe@needyzone.com",
-  },
+
 ]
 
 export default function ContactPage() {
