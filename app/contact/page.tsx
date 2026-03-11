@@ -198,7 +198,7 @@ export default function ContactPage() {
                   <h3 className="mt-4 font-semibold">Technical Support</h3>
                   <p className="mt-2 text-sm text-muted-foreground">Get help with installation and troubleshooting</p>
                   <Button variant="link" asChild className="mt-4 gap-2">
-                    <a href="tel:+1234567891">
+                    <a href="tel:+91 9717798826">
                       Call Support
                       <ArrowRight className="h-4 w-4" />
                     </a>
