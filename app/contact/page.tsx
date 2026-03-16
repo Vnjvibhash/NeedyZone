@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { LeadInquiryForm } from "@/components/lead-inquiry-form"
+import { OfficeLocationMap } from "@/components/office-location-map"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Clock, MessageSquare, HeadphonesIcon, FileText, ArrowRight } from "lucide-react"
@@ -20,7 +21,7 @@ const contactMethods = [
     title: "Technical Support",
     description: "Get help with installation or troubleshooting",
     contact: "+91 9717798826",
-    link: "tel:+91 9717798826",
+    link: "tel:+919717798826",
     hours: "24/7 Support Available",
   },
   {
@@ -43,19 +44,17 @@ const contactMethods = [
 
 const offices = [
   {
-    name: "Headquarters",
-    address: "phase-5 Aya Nagar near-CBR Hospital Sa
-    Sunday Market New Delhi-110047",
+    name: "Office Address",
+    address: "Phase-5 Aya Nagar, Near CBR Hospital, New Delhi - 110047, India",
+    phone: "+91 9717798826",
+    email: "info@needyzone.com",
+  },
+  {
+    name: "Main Address",
+    address: "N-346/A Shanti Colony, Mandi Village, New Delhi - 110047, India",
     phone: "+91 9717798826",
     email: "hq@needyzone.com",
   },
-  {
-    name: "Manufacturing Facility",
-    address: "N-346 A , Shanti Colony Mandi Village New Delhi-110047, India",
-    phone: "+91 9717798826",
-    email: "factory@needyzone.com",
-  },
-
 ]
 
 export default function ContactPage() {
@@ -157,13 +156,9 @@ export default function ContactPage() {
                   ))}
                 </div>
 
-                {/* Map Placeholder */}
-                <div className="mt-8 aspect-video overflow-hidden rounded-xl border border-border bg-muted">
-                  <img
-                    src="/world-map-locations-business-office-pins.jpg"
-                    alt="Office locations map"
-                    className="h-full w-full object-cover"
-                  />
+                {/* Interactive Map */}
+                <div className="mt-8">
+                  <OfficeLocationMap />
                 </div>
               </div>
             </div>
@@ -198,7 +193,7 @@ export default function ContactPage() {
                   <h3 className="mt-4 font-semibold">Technical Support</h3>
                   <p className="mt-2 text-sm text-muted-foreground">Get help with installation and troubleshooting</p>
                   <Button variant="link" asChild className="mt-4 gap-2">
-                    <a href="tel:+91 9717798826">
+                    <a href="tel:+919717798826">
                       Call Support
                       <ArrowRight className="h-4 w-4" />
                     </a>
