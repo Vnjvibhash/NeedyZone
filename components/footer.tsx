@@ -53,7 +53,7 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>123 Industrial Park, Tech City, TC 12345</span>
+                <span>Phase-5 Aya Nagar, Near CBR Hospital, New Delhi - 110047</span>
               </div>
             </div>
           </div>
