@@ -20,8 +20,8 @@ const contactMethods = [
     icon: HeadphonesIcon,
     title: "Technical Support",
     description: "Get help with installation or troubleshooting",
-    contact: "+1 (234) 567-891",
-    link: "tel:+1234567891",
+    contact: "+91 9717798826",
+    link: "tel:+919717798826",
     hours: "24/7 Support Available",
   },
   {
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   <h3 className="mt-4 font-semibold">Technical Support</h3>
                   <p className="mt-2 text-sm text-muted-foreground">Get help with installation and troubleshooting</p>
                   <Button variant="link" asChild className="mt-4 gap-2">
-                    <a href="tel:+1234567891">
+                    <a href="tel:+919717798826">
                       Call Support
                       <ArrowRight className="h-4 w-4" />
                     </a>
