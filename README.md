@@ -1,30 +1,97 @@
-# Smart home UI design
+# NeedyZone - Smart Home Automation Manufacturer
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+*A professional website for a smart home automation manufacturer specializing in CCTV cameras and IoT smart switchboards*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/vivekkumarcipl-2526s-projects/v0-smart-home-ui-design-i0)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/rtWxHjYPEvu)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://needyzone.vercel.app/)
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app)
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+NeedyZone is a comprehensive B2B/B2C website for a smart home automation manufacturer. The site showcases CCTV camera systems and intelligent electrical switchboards for residential, commercial, and industrial applications. Built with Next.js and React, it features an interactive map for office locations, detailed product catalogs, dealer inquiry forms, and manufacturing information.
 
-## Deployment
+## Live Demo
 
-Your project is live at:
+Visit the deployed site: **[https://needyzone.vercel.app/](https://needyzone.vercel.app/)**
 
-**[https://vercel.com/vivekkumarcipl-2526s-projects/v0-smart-home-ui-design-i0](https://vercel.com/vivekkumarcipl-2526s-projects/v0-smart-home-ui-design-i0)**
+## Features
 
-## Build your app
+- **Homepage** - Professional hero section, trust badges, product categories, statistics, and features showcase
+- **CCTV Products** - Browse 6 camera types with detailed specifications and lead inquiry forms
+- **Smart Switchboards** - Product listing with platform compatibility information
+- **Manufacturing & Quality** - Company certifications (ISO, CE, RoHS, FCC) and production capabilities
+- **Dealer Inquiry** - Partnership opportunities with different dealer types and FAQ section
+- **Contact Page** - Interactive map with office locations, contact methods, and inquiry forms
+- **Responsive Design** - Mobile-first approach with Tailwind CSS styling
 
-Continue building your app on:
+## Contact Information
 
-**[https://v0.app/chat/rtWxHjYPEvu](https://v0.app/chat/rtWxHjYPEvu)**
+- **Phone**: +91 9717798826
+- **Email**: info@needyzone.com
+- **Office Address**: Phase-5 Aya Nagar, Near CBR Hospital, New Delhi - 110047, India
+- **Main Address**: N-346/A Shanti Colony, Mandi Village, New Delhi - 110047, India
 
-## How It Works
+## Tech Stack
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+- **Frontend**: Next.js 16, React 19, TypeScript
+- **Styling**: Tailwind CSS v4, shadcn/ui components
+- **Maps**: Leaflet for interactive office location display
+- **Deployment**: Vercel
+
+## Getting Started
+
+### Clone the Repository
+```bash
+git clone https://github.com/Vnjvibhash/NeedyZone.git
+cd NeedyZone
+```
+
+### Install Dependencies
+```bash
+npm install
+```
+
+### Run Development Server
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the site.
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx              # Homepage
+│   ├── layout.tsx            # Root layout
+│   ├── contact/              # Contact page with interactive map
+│   ├── dealers/              # Dealer inquiry page
+│   ├── manufacturing/        # Manufacturing & quality page
+│   └── products/             # Product pages
+│       ├── cctv/             # CCTV camera products
+│       └── switchboards/     # Smart switchboard products
+├── components/
+│   ├── header.tsx            # Navigation header
+│   ├── footer.tsx            # Footer
+│   ├── office-location-map.tsx # Interactive map component
+│   └── ui/                   # shadcn/ui components
+├── lib/
+│   ├── products-data.ts      # Product catalog data
+│   └── utils.ts              # Utility functions
+└── public/                   # Static assets and generated images
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## Synchronization with v0.app
+
+This repository stays in sync with the v0.app deployment. Changes made in v0 are automatically pushed to this repository.
+
+## License
+
+This project is proprietary and confidential. All rights reserved.
