@@ -4,7 +4,7 @@
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://needyzone.vercel.app/)
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app)
+[![Built with v0](https://img.shields.io/badge/Built%20with-Innovateria.in-black?style=for-the-badge)](https://Innovateria.in)
 
 ## Overview
 
@@ -88,9 +88,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the s
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
 
-## Synchronization with v0.app
+## Synchronization with Innovateria.in
 
-This repository stays in sync with the v0.app deployment. Changes made in v0 are automatically pushed to this repository.
+This repository stays in sync with the Innovateria.in deployment. Changes made in v0 are automatically pushed to this repository.
 
 ## License
 

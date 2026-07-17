@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { CheckCircle } from "lucide-react"
+import { toast } from "sonner"
 
 interface LeadInquiryFormProps {
   productName?: string
@@ -17,10 +18,46 @@ interface LeadInquiryFormProps {
 
 export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFormProps) {
   const [submitted, setSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    setIsLoading(true)
+
+    const formData = new FormData(e.currentTarget)
+    const data: Record<string, any> = {
+      type,
+      productName,
+    }
+
+    formData.forEach((value, key) => {
+      data[key] = value
+    })
+
+    try {
+      const response = await fetch("https://formspree.io/f/mdaqerbl", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const resData = await response.json()
+
+      if (response.ok) {
+        setSubmitted(true)
+        toast.success("Message sent successfully!")
+      } else {
+        toast.error(resData.error || "Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Submission error:", error)
+      toast.error("An error occurred while sending your message. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   if (submitted) {
@@ -42,22 +79,22 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Full Name *</Label>
-          <Input id="name" placeholder="John Doe" required />
+          <Input id="name" name="name" placeholder="John Doe" required />
         </div>
         <div className="space-y-2">
           <Label htmlFor="company">Company Name</Label>
-          <Input id="company" placeholder="Your Company" />
+          <Input id="company" name="company" placeholder="Your Company" />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="email">Email Address *</Label>
-          <Input id="email" type="email" placeholder="john@example.com" required />
+          <Input id="email" name="email" type="email" placeholder="john@example.com" required />
         </div>
         <div className="space-y-2">
           <Label htmlFor="phone">Phone Number *</Label>
-          <Input id="phone" type="tel" placeholder="+1 234 567 890" required />
+          <Input id="phone" name="phone" type="tel" placeholder="+1 234 567 890" required />
         </div>
       </div>
 
@@ -65,7 +102,7 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="business">Business Type *</Label>
-            <Select required>
+            <Select name="business" required>
               <SelectTrigger id="business">
                 <SelectValue placeholder="Select business type" />
               </SelectTrigger>
@@ -80,7 +117,7 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
           </div>
           <div className="space-y-2">
             <Label htmlFor="region">Region/Territory *</Label>
-            <Input id="region" placeholder="Your region or city" required />
+            <Input id="region" name="region" placeholder="Your region or city" required />
           </div>
         </div>
       )}
@@ -88,7 +125,7 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
       {type === "product" && (
         <div className="space-y-2">
           <Label htmlFor="interest">Product Interest *</Label>
-          <Select defaultValue={productName} required>
+          <Select name="interest" defaultValue={productName} required>
             <SelectTrigger id="interest">
               <SelectValue placeholder="Select product" />
             </SelectTrigger>
@@ -104,7 +141,7 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
 
       <div className="space-y-2">
         <Label htmlFor="quantity">Estimated Quantity</Label>
-        <Select>
+        <Select name="quantity">
           <SelectTrigger id="quantity">
             <SelectValue placeholder="Select quantity range" />
           </SelectTrigger>
@@ -119,11 +156,11 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
 
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" placeholder="Tell us about your requirements..." rows={4} className="resize-none" />
+        <Textarea id="message" name="message" placeholder="Tell us about your requirements..." rows={4} className="resize-none" />
       </div>
 
-      <Button type="submit" className="w-full" size="lg">
-        Submit Inquiry
+      <Button type="submit" className="w-full" size="lg" disabled={isLoading}>
+        {isLoading ? "Sending..." : "Submit Inquiry"}
       </Button>
     </form>
   )

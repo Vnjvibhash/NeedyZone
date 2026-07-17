@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "sonner"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "NeedyZone | Smart Home Automation & CCTV Systems",
   description:
     "Leading manufacturer of industrial-grade CCTV cameras and IoT smart switchboards for homes, offices, factories, and dealers.",
-  generator: "v0.app",
+  generator: "Innovateria.in",
   icons: {
     icon: [
       {
@@ -40,8 +41,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans antialiased`}>
         {children}
+        <Toaster position="top-right" richColors />
         <Analytics />
       </body>
     </html>
   )
 }
+
