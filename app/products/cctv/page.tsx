@@ -6,6 +6,9 @@ import { cctvProducts } from "@/lib/products-data"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Camera, Shield, Wifi, Cloud } from "lucide-react"
 
+export const dynamic = "force-dynamic"
+
+
 const features = [
   {
     icon: Camera,

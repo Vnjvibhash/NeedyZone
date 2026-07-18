@@ -1,0 +1,16 @@
+[
+  {
+    "id": "inq1",
+    "name": "Sarah Miller",
+    "email": "sarah.m@example.com",
+    "phone": "+1 555 019 2831",
+    "company": "Miller Retail Group",
+    "type": "dealer",
+    "business": "retailer",
+    "region": "California, US",
+    "quantity": "51-100",
+    "message": "Interested in partnering to sell smart switchboards in retail chains. We have 12 outlets across the west coast.",
+    "status": "Pending",
+    "date": "2026-07-18T10:30:00Z"
+  }
+]

@@ -1,9 +1,10 @@
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { LeadInquiryForm } from "@/components/lead-inquiry-form"
+import { RequestQuoteButton } from "@/components/request-quote-button"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { getStoredFAQs } from "@/lib/faqs-data"
 import {
   Handshake,
   TrendingUp,
@@ -17,6 +18,9 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react"
+
+export const dynamic = "force-dynamic"
+
 
 const benefits = [
   {
@@ -82,6 +86,8 @@ const stats = [
 ]
 
 export default function DealersPage() {
+  const faqs = getStoredFAQs().filter((f) => f.category === "Dealers")
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -112,12 +118,11 @@ export default function DealersPage() {
                   ))}
                 </ul>
 
-                <Button size="lg" asChild className="mt-8 gap-2">
-                  <a href="#apply">
-                    Apply Now
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                </Button>
+                <RequestQuoteButton
+                  type="dealer"
+                  label="Apply Now"
+                  className="mt-8"
+                />
               </div>
 
               <div className="relative">
@@ -237,26 +242,6 @@ export default function DealersPage() {
           </div>
         </section>
 
-        {/* Application Form Section */}
-        <section id="apply" className="py-20">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-2xl">
-              <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Apply to Become a Dealer</h2>
-                <p className="mt-4 text-muted-foreground">
-                  Fill out the form below and our partnership team will contact you within 48 hours.
-                </p>
-              </div>
-
-              <Card className="mt-8">
-                <CardContent className="pt-6">
-                  <LeadInquiryForm type="dealer" />
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4 lg:px-8">
@@ -264,29 +249,8 @@ export default function DealersPage() {
               <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
 
               <div className="mt-12 space-y-6">
-                {[
-                  {
-                    question: "What are the requirements to become a dealer?",
-                    answer:
-                      "We welcome businesses with a physical location or online presence, relevant industry experience, and a commitment to customer service. Minimum requirements vary by partnership type.",
-                  },
-                  {
-                    question: "How long does the application process take?",
-                    answer:
-                      "Most applications are reviewed within 48 hours. Once approved, you can start ordering immediately after completing our onboarding process.",
-                  },
-                  {
-                    question: "Do you offer exclusive territories?",
-                    answer:
-                      "Yes, exclusive territory protection is available for Authorized Distributors who meet volume commitments. Contact us for territory availability in your area.",
-                  },
-                  {
-                    question: "What training do you provide?",
-                    answer:
-                      "We offer comprehensive online and in-person training covering product knowledge, installation best practices, troubleshooting, and sales techniques.",
-                  },
-                ].map((faq) => (
-                  <div key={faq.question} className="rounded-lg border border-border bg-card p-6">
+                {faqs.map((faq) => (
+                  <div key={faq.id} className="rounded-lg border border-border bg-card p-6">
                     <h3 className="font-semibold">{faq.question}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>
                   </div>

@@ -35,7 +35,7 @@ export function LeadInquiryForm({ productName, type = "product" }: LeadInquiryFo
     })
 
     try {
-      const response = await fetch("https://formspree.io/f/mdaqerbl", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Accept": "application/json",

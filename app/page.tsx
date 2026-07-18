@@ -5,7 +5,10 @@ import { TrustBadges } from "@/components/trust-badges"
 import { ProductCategories } from "@/components/product-categories"
 import { StatsSection } from "@/components/stats-section"
 import { FeaturesGrid } from "@/components/features-grid"
+import { TestimonialsSection } from "@/components/testimonials-section"
 import { CTASection } from "@/components/cta-section"
+
+export const dynamic = "force-dynamic"
 
 export default function HomePage() {
   return (
@@ -17,9 +20,11 @@ export default function HomePage() {
         <ProductCategories />
         <StatsSection />
         <FeaturesGrid />
+        <TestimonialsSection />
         <CTASection />
       </main>
       <Footer />
     </div>
   )
 }
+

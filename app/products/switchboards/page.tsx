@@ -6,6 +6,9 @@ import { switchboardProducts } from "@/lib/products-data"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, ToggleRight, Smartphone, Zap, BarChart3 } from "lucide-react"
 
+export const dynamic = "force-dynamic"
+
+
 const features = [
   {
     icon: ToggleRight,

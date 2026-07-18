@@ -1,0 +1,38 @@
+[
+  {
+    "id": "rev1",
+    "author": "Rajesh Kumar",
+    "role": "Residential Homeowner",
+    "rating": 5,
+    "comment": "The smart switchboards completely changed how we manage our home energy consumption. App integration is incredibly fast!",
+    "approved": true,
+    "date": "2026-06-15"
+  },
+  {
+    "id": "rev2",
+    "author": "Priya Sharma",
+    "role": "IT Security Director",
+    "rating": 5,
+    "comment": "Installed the SV-PTZ 8K camera in our warehouse. The zoom capability and night vision clarity are absolutely phenomenal. Security team loves it.",
+    "approved": true,
+    "date": "2026-06-28"
+  },
+  {
+    "id": "rev3",
+    "author": "Amit Patel",
+    "role": "Authorized Dealer",
+    "rating": 4,
+    "comment": "Being a NeedyZone distributor has been great for our business. Support is always on time, and build quality of switchboards is stellar.",
+    "approved": true,
+    "date": "2026-07-02"
+  },
+  {
+    "id": "rev4",
+    "author": "Vikram Singh",
+    "role": "Smart Home Installer",
+    "rating": 5,
+    "comment": "Super clean wiring layouts on these panels. Extremely installer-friendly, and the client onboarding takes less than five minutes.",
+    "approved": true,
+    "date": "2026-07-10"
+  }
+]

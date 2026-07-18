@@ -1,0 +1,38 @@
+[
+  {
+    "id": "faq1",
+    "question": "What are the requirements to become a dealer?",
+    "answer": "We welcome businesses with a physical location or online presence, relevant industry experience, and a commitment to customer service. Minimum requirements vary by partnership type.",
+    "category": "Dealers"
+  },
+  {
+    "id": "faq2",
+    "question": "How long does the application process take?",
+    "answer": "Most applications are reviewed within 48 hours. Once approved, you can start ordering immediately after completing our onboarding process.",
+    "category": "Dealers"
+  },
+  {
+    "id": "faq3",
+    "question": "Do you offer exclusive territories?",
+    "answer": "Yes, exclusive territory protection is available for Authorized Distributors who meet volume commitments. Contact us for territory availability in your area.",
+    "category": "Dealers"
+  },
+  {
+    "id": "faq4",
+    "question": "What training do you provide?",
+    "answer": "We offer comprehensive online and in-person training covering product knowledge, installation best practices, troubleshooting, and sales techniques.",
+    "category": "Dealers"
+  },
+  {
+    "id": "faq5",
+    "question": "Are NeedyZone CCTV cameras compatible with third-party NVRs?",
+    "answer": "Yes, our CCTV cameras support ONVIF protocols, making them compatible with most third-party NVRs and video management systems on the market.",
+    "category": "Products"
+  },
+  {
+    "id": "faq6",
+    "question": "How do I download the mobile app for switchboards?",
+    "answer": "The NeedyZone SmartHome app is available for download on both the Apple App Store and Google Play Store. Search for 'NeedyZone SmartHome'.",
+    "category": "Technical"
+  }
+]

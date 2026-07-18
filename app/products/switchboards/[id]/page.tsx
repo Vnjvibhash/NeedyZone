@@ -3,14 +3,17 @@ import { notFound } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SpecificationTable } from "@/components/specification-table"
-import { LeadInquiryForm } from "@/components/lead-inquiry-form"
+import { RequestQuoteButton } from "@/components/request-quote-button"
 import { ProductCard } from "@/components/product-card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { switchboardProducts, getProductById } from "@/lib/products-data"
-import { ArrowLeft, Check, Phone, FileText, Download } from "lucide-react"
+import { ArrowLeft, Check, Phone, Download } from "lucide-react"
+
+export const dynamic = "force-dynamic"
+
 
 export function generateStaticParams() {
   return switchboardProducts.map((product) => ({ id: product.id }))
@@ -91,12 +94,7 @@ export default async function SwitchboardProductDetailPage({ params }: { params:
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Button size="lg" asChild className="gap-2">
-                    <a href="#inquiry">
-                      Request Quote
-                      <FileText className="h-4 w-4" />
-                    </a>
-                  </Button>
+                  <RequestQuoteButton productName={product.name} type="product" />
                   <Button size="lg" variant="outline" asChild className="gap-2 bg-transparent">
                     <a href="tel:+1234567890">
                       <Phone className="h-4 w-4" />
@@ -159,24 +157,6 @@ export default async function SwitchboardProductDetailPage({ params }: { params:
           </div>
         </section>
 
-        {/* Inquiry Form */}
-        <section id="inquiry" className="py-12 lg:py-16">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="mx-auto max-w-2xl">
-              <Card>
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">Request a Quote</CardTitle>
-                  <p className="text-muted-foreground">
-                    Fill out the form below and our team will get back to you within 24 hours.
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <LeadInquiryForm productName={product.name} />
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
 
         {/* Related Products */}
         <section className="border-t border-border bg-muted/30 py-12">

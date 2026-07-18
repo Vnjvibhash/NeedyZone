@@ -1,3 +1,6 @@
+import fs from "fs"
+import path from "path"
+
 export interface Product {
   id: string
   name: string
@@ -13,7 +16,7 @@ export interface Product {
   features: string[]
 }
 
-export const cctvProducts: Product[] = [
+const defaultCctvProducts: Product[] = [
   {
     id: "sv-dome-4k",
     name: "SV-Dome 4K Pro",
@@ -166,7 +169,7 @@ export const cctvProducts: Product[] = [
   },
 ]
 
-export const switchboardProducts: Product[] = [
+const defaultSwitchboardProducts: Product[] = [
   {
     id: "sb-home-8",
     name: "SmartPanel Home 8-Way",
@@ -318,10 +321,53 @@ export const switchboardProducts: Product[] = [
   },
 ]
 
+const productsFilePath = path.join(process.cwd(), "data", "products.json")
+
+export function getStoredProducts(): { cctv: Product[]; switchboard: Product[] } {
+  try {
+    if (fs.existsSync(productsFilePath)) {
+      const data = fs.readFileSync(productsFilePath, "utf8")
+      return JSON.parse(data)
+    }
+  } catch (error) {
+    console.error("Failed to read products file, falling back to defaults", error)
+  }
+  return { cctv: defaultCctvProducts, switchboard: defaultSwitchboardProducts }
+}
+
+export function writeStoredProducts(data: { cctv: Product[]; switchboard: Product[] }) {
+  try {
+    const dir = path.dirname(productsFilePath)
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true })
+    }
+    fs.writeFileSync(productsFilePath, JSON.stringify(data, null, 2), "utf8")
+    reloadProducts()
+  } catch (error) {
+    console.error("Failed to write products file", error)
+  }
+}
+
+export const cctvProducts: Product[] = []
+export const switchboardProducts: Product[] = []
+
+export function reloadProducts() {
+  const data = getStoredProducts()
+  cctvProducts.length = 0
+  cctvProducts.push(...data.cctv)
+  switchboardProducts.length = 0
+  switchboardProducts.push(...data.switchboard)
+}
+
+// Initial load
+reloadProducts()
+
 export function getProductById(id: string): Product | undefined {
-  return [...cctvProducts, ...switchboardProducts].find((p) => p.id === id)
+  const data = getStoredProducts()
+  return [...data.cctv, ...data.switchboard].find((p) => p.id === id)
 }
 
 export function getProductsByCategory(category: "cctv" | "switchboard"): Product[] {
-  return category === "cctv" ? cctvProducts : switchboardProducts
+  const data = getStoredProducts()
+  return category === "cctv" ? data.cctv : data.switchboard
 }
